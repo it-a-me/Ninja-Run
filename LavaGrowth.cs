@@ -16,9 +16,9 @@ public class LavaGrowth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   //sets the speed of lava
-        lavaSpeed = playerTransform.position.x * 0.1f;
-        lavaSpeed = Mathf.Max(lavaSpeed, 1);
-        lavaSpeed = Mathf.Min(lavaSpeed, 6);
+        lavaSpeed += 0.1f * Time.deltaTime;
+        lavaSpeed = Mathf.Max(lavaSpeed, 2);
+        lavaSpeed = Mathf.Min(lavaSpeed, 5);
         //moves lava
         transform.localScale += new Vector3(lavaSpeed * Time.deltaTime, 0f, 0f);
         //makes sure the lava is never more the 10 units behind from the player
