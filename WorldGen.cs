@@ -12,11 +12,11 @@ public class WorldGen : MonoBehaviour
     public GameObject levelTemplate1;
     public GameObject levelTemplate2;
     public GameObject levelTemplate3;
+        //attempted LavaCollisionfix: float lavaSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        //loads player and lava locations
         playerTransform = GameObject.Find("Player").transform;
         lavaTransform = GameObject.Find("Lava").transform;
     }
@@ -24,8 +24,14 @@ public class WorldGen : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            //attempted LavaCollisionfix: lavaSpeed = lavaTransform.localScale.y - 20;
+            //attempted LavaCollisionfix: Debug.Log((lavaTransform.localScale.y-20).ToString()+"calc");
+            //attempted LavaCollisionfix: Debug.Log(lavaTransform.position.x.ToString() +lavaLastX.ToString());
+            //attempted LavaCollisionfix: Debug.Log((playerTransform.position.x - 0.3f).ToString()+"   "+(lavaTransform.position.x + lavaTransform.localScale.x * 0.5f).ToString());
+            //attempted LavaCollisionfix: if (playerTransform.position.x-0.3f + lavaSpeed*Time.deltaTime < lavaTransform.position.x + lavaTransform.localScale.x * 0.5f||playerTransform.position.y < -5)
+
         //change scenes if the player colides with lava or falls from world
-        if (playerTransform.position.x-0.5f < lavaTransform.position.x + lavaTransform.localScale.x * 0.5f||playerTransform.position.y < -5)
+        if (playerTransform.position.x-0.3f < lavaTransform.position.x + lavaTransform.localScale.x * 0.5f||playerTransform.position.y < -5)
         {
             SceneManager.LoadScene(1);
             SceneManager.UnloadSceneAsync(0);

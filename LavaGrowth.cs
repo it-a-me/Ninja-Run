@@ -20,12 +20,12 @@ public class LavaGrowth : MonoBehaviour
         lavaSpeed = Mathf.Max(lavaSpeed, 1);
         lavaSpeed = Mathf.Min(lavaSpeed, 6);
         //moves lava
-        transform.localScale += new Vector3(lavaSpeed*Time.deltaTime, 0f, 0f);
+        transform.localScale += new Vector3(lavaSpeed * Time.deltaTime, 0f, 0f);
         //makes sure the lava is never more the 10 units behind from the player
-        if (playerTransform.position.x > transform.localScale.x*0.5f + 10)
+        if (playerTransform.position.x > transform.localScale.x * 0.5f + 10)
         {
-            transform.localScale = new Vector3(playerTransform.position.x*2 - 10, 20f, 1f);
+            transform.localScale = new Vector3(playerTransform.position.x * 2 - 10, 20f, 1f);
         }
-        
+
     }
 }
